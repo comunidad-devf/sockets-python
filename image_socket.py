@@ -12,14 +12,14 @@ while True:
     data = mysock.recv(5120)
     if ( len(data) < 1 ) : break
     # time.sleep(0.25)
-    count = count + len(data)
-    print len(data),count
-    picture = picture + data
+    count += len(data)
+    #print len(data),count
+    picture += data
 
 mysock.close()
-
 # Look for the end of the header (2 CRLF)
 pos = picture.find("\r\n\r\n");
+print pos
 print 'Header length',pos
 print picture[:pos]
 
